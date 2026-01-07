@@ -1,0 +1,213 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #FDE68A;
+  border-radius: 20px;
+}
+
+/* --- Race Event Animations & Styles --- */
+
+/* MUDDY SECTION */
+.mud-pattern {
+  background-image: url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0h20v20H0z' fill='%23795548' fill-opacity='0.1'/%3E%3Cpath d='M0 0h10v10H0zM10 10h10v10H10z' fill='%235D4037' fill-opacity='0.1'/%3E%3C/svg%3E");
+}
+
+.slowing-badge {
+  animation: pulse-slow 2s infinite;
+}
+
+@keyframes pulse-slow {
+
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.7;
+  }
+}
+
+@keyframes squish {
+
+  0%,
+  100% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(0.98);
+  }
+}
+
+/* STRONG WIND */
+.animate-wind-flow {
+  animation: windFlow 2s linear infinite;
+}
+
+.animate-wind-gust {
+  animation: windGust 3s ease-in-out infinite;
+}
+
+.animate-bounce-slow {
+  animation: bounce 3s infinite;
+}
+
+@keyframes windFlow {
+  0% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+
+  50% {
+    opacity: 0.6;
+  }
+
+  100% {
+    transform: translateX(200%);
+    opacity: 0;
+  }
+}
+
+@keyframes windGust {
+
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+
+  50% {
+    transform: translateX(10px);
+  }
+}
+
+/* COTTON CANDY */
+.animate-spin-slow {
+  animation: spin 3s linear infinite;
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.animate-pulse-fast {
+  animation: pulse 1.5s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes float {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+/* TRASH CAN */
+.shiny-effect {
+  position: relative;
+  overflow: hidden;
+}
+
+.shiny-effect::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to right, transparent 0%, rgba(255, 255, 255, 0.8) 50%, transparent 100%);
+  background-size: 200px 100%;
+  background-repeat: no-repeat;
+  background-position: -100px 0;
+  animation: shine 3s infinite;
+}
+
+@keyframes shine {
+  0% {
+    background-position: -100px;
+  }
+
+  40%,
+  100% {
+    background-position: 140px;
+  }
+}
+
+@keyframes pop-in {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+
+  70% {
+    transform: scale(1.1);
+    opacity: 1;
+  }
+
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.animate-pop {
+  animation: pop-in 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+/* POSITION CHANGE */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.dark .glass-panel {
+  background: rgba(30, 30, 30, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.swap-arrow {
+  animation: bounce-horizontal 1s infinite;
+}
+
+@keyframes bounce-horizontal {
+
+  0%,
+  100% {
+    transform: translateY(-25%) translateX(0);
+  }
+
+  50% {
+    transform: translateY(-25%) translateX(5px);
+  }
+}
+
+@keyframes flash {
+
+  0%,
+  100% {
+    opacity: 0;
+  }
+
+  50% {
+    opacity: 1;
+  }
+}
+
+.animate-swap-flash {
+  animation: flash 0.5s ease-in-out;
+}
